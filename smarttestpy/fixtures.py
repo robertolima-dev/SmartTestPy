@@ -1,11 +1,10 @@
-# 📦 smarttestpy/fixtures.py
-
 import pytest
 from faker import Faker
 
 fake = Faker()
 
 # 🎭 Fixtures Reutilizáveis para pytest
+
 
 @pytest.fixture
 def fake_user():
@@ -46,7 +45,7 @@ def fake_product():
     """🛒 Gera um produto fake para testes de e-commerce."""
     return {
         "product_name": fake.word(),
-        "price": round(fake.pyfloat(left_digits=2, right_digits=2, positive=True), 2),
+        "price": round(fake.pyfloat(left_digits=2, right_digits=2, positive=True), 2), # noqa501
         "description": fake.sentence(),
         "created_at": fake.date_time_this_year().isoformat(),
     }

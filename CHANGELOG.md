@@ -1,5 +1,10 @@
 # 📜 Changelog
 
+
+## [1.1.2] - 2025-03-19
+### Adicionado
+- Ajustes no README.
+
 ## [1.1.1] - 2025-03-19
 ### Adicionado
 - Ajustes de pastas e nomes.

@@ -1,11 +1,11 @@
 import pytest
 
-from SmartTestPy.fixtures import (fake_company, fake_product, fake_user,
-                                  mock_response_200)
+from SmartTestPy.fixtures import mock_response_200  # noqa
+from SmartTestPy.fixtures import fake_company, fake_product, fake_user  # noqa
 
 
 # 🧪 Testes para a fixture fake_user
-def test_fake_user(fake_user):
+def test_fake_user(fake_user): # noqa
     """✅ Testa se a fixture fake_user gera dados válidos."""
     user = fake_user
     assert "name" in user
@@ -17,7 +17,7 @@ def test_fake_user(fake_user):
 
 
 # 🏢 Testes para a fixture fake_company
-def test_fake_company(fake_company):
+def test_fake_company(fake_company): # noqa
     """🏢 Testa se a fixture fake_company gera dados válidos."""
     company = fake_company
     assert "company_name" in company
@@ -28,7 +28,7 @@ def test_fake_company(fake_company):
 
 
 # 🛒 Testes para a fixture fake_product
-def test_fake_product(fake_product):
+def test_fake_product(fake_product): # noqa
     """🛒 Testa se a fixture fake_product gera dados válidos."""
     product = fake_product
     assert "product_name" in product
@@ -39,7 +39,7 @@ def test_fake_product(fake_product):
 
 
 # ✅ Testes para mock_response_200
-def test_mock_response_200(mock_response_200):
+def test_mock_response_200(mock_response_200): # noqa
     """✅ Testa se a fixture mock_response_200 retorna código 200 e texto OK."""
     response = mock_response_200
     assert response.status_code == 200, "❌ Status code inválido."

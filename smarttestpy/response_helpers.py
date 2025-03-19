@@ -16,7 +16,7 @@ def assert_json_response(response: Response, expected_json: dict):
         "❌ Content-Type inválido. Esperado 'application/json'."
     )
     assert response.json() == expected_json, (
-        f"❌ JSON incorreto. Esperado: {expected_json}, Obtido: {response.json()}"
+        f"❌ JSON incorreto. Esperado: {expected_json}, Obtido: {response.json()}" # noqa501
     )
 
 
@@ -34,11 +34,11 @@ def assert_header(response: Response, header: str, value: str):
     """
     actual_value = response.headers.get(header)
     assert actual_value == value, (
-        f"❌ Valor incorreto para o cabeçalho '{header}'. Esperado: '{value}', Obtido: '{actual_value}'."
+        f"❌ Valor incorreto para o cabeçalho '{header}'. Esperado: '{value}', Obtido: '{actual_value}'." # noqa501
     )
 
 
-def assert_status_and_json(response: Response, status_code: int, expected_json: dict):
+def assert_status_and_json(response: Response, status_code: int, expected_json: dict): # noqa501
     """
     🔄 🌟 Valida o código de status e o conteúdo JSON em uma única chamada.
 
@@ -51,7 +51,7 @@ def assert_status_and_json(response: Response, status_code: int, expected_json: 
         AssertionError: Se qualquer validação falhar.
     """
     assert response.status_code == status_code, (
-        f"❌ Código de status inválido. Esperado: {status_code}, Obtido: {response.status_code}."
+        f"❌ Código de status inválido. Esperado: {status_code}, Obtido: {response.status_code}." # noqa501
     )
     assert_json_response(response, expected_json)
 

@@ -6,7 +6,7 @@
 
 ## ✨ **Funcionalidades Principais**
 - ✅ **Assertions personalizadas** para validações detalhadas.
-- 🏗 **Fixtures reutilizáveis** para cenários complexos.
+- 🏷 **Fixtures reutilizáveis** para cenários complexos.
 - 🎭 **Mocks inteligentes** para testes isolados.
 - 🌐 **Testes de API** com validação de payloads, headers e status.
 - 🏦 **Gerenciamento de banco de dados** para testes integrados.
@@ -35,6 +35,11 @@ pip install SmartTestPy
 ### ✅ **Assertions Customizadas**
 ```python
 from SmartTestPy.assertions import assert_status_code
+
+class MockResponse:
+    def __init__(self, status_code, text):
+        self.status_code = status_code
+        self.text = text
 
 response = MockResponse(200, "OK")
 assert_status_code(response, 200)
@@ -79,14 +84,14 @@ pytest --cov=SmartTestPy --cov-report=html
 
 ---
 
-## 🏗 **Estrutura do Projeto**
+## 🏰 **Estrutura do Projeto**
 ```
 SmartTestPy/
 │
-├── SmartTestPy/                # 📦 Código do pacote
+├── SmartTestPy/                # 📞 Código do pacote
 │   ├── __init__.py
 │   ├── assertions.py           # ✅ Assertions personalizadas
-│   ├── fixtures.py             # 🏗 Fixtures e mocks reutilizáveis
+│   ├── fixtures.py             # 🏷 Fixtures e mocks reutilizáveis
 │   ├── response_helpers.py     # 🌐 Testes e validações de APIs
 │   ├── time_utils.py           # ⏳ Manipulação de tempo
 │
@@ -97,10 +102,10 @@ SmartTestPy/
 │   └── test_time_utils.py
 │
 ├── setup.py                    # ⚙️ Configuração do pacote
-├── pyproject.toml              # 📦 Configuração moderna
+├── pyproject.toml              # 📚 Configuração moderna
 ├── README.md                   # 📚 Documentação do projeto
-├── LICENSE                     # 📜 Licença MIT
-└── MANIFEST.in                 # 📋 Inclusão de arquivos extras
+├── LICENSE                     # 🌍 Licença MIT
+└── MANIFEST.in                 # 🗉 Inclusão de arquivos extras
 ```
 
 ---
@@ -120,7 +125,7 @@ Distribuído sob a **Licença MIT**. Veja o arquivo [LICENSE](LICENSE) para mais
 
 ## 👨‍💻 **Autor**
 
-Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** 🚀✨
+Desenvolvido por **[Roberto Lima](https://github.com/robertolima-dev)** 🚀✨
 
 ---
 
@@ -128,7 +133,8 @@ Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** �
 
 - 📧 **Email**: robertolima.izphera@gmail.com
 - 💼 **LinkedIn**: [Roberto Lima](https://www.linkedin.com/in/roberto-lima-01/)
-
+- 💼 **Website**: [Roberto Lima](https://robertolima-developer.vercel.app/)
+- 💼 **Gravatar**: [Roberto Lima](https://gravatar.com/deliciouslyautomaticf57dc92af0)
 ---
 
 ## ⭐ **Gostou do projeto?**
@@ -136,7 +142,7 @@ Desenvolvido por **[Roberto Lima](https://robertolima-developer.vercel.app/)** �
 Deixe uma ⭐ no repositório e compartilhe com a comunidade! 🚀✨  
 
 ```bash
-git clone https://github.com/seuusuario/SmartTestPy.git
+git clone https://github.com/robertolima-dev/SmartTestPy.git
 cd SmartTestPy
 pip install -e .
 ```
@@ -147,6 +153,6 @@ pip install -e .
 - 🎯 **Descrição clara** do projeto e seu propósito.  
 - 🛠 **Instruções detalhadas de instalação** e **uso prático**.  
 - 🧪 **Guia de testes** para garantir que o código funciona.  
-- 🏗 **Estrutura do projeto** para facilitar a navegação.  
+- 🏰 **Estrutura do projeto** para facilitar a navegação.  
 - 🔄 **Seção de contribuição** para quem deseja ajudar no desenvolvimento.  
 - 📝 **Licença e informações do autor** para transparência.
