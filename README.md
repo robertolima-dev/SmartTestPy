@@ -34,7 +34,7 @@ pip install SmartTestPy
 
 ### ✅ **Assertions Customizadas**
 ```python
-from smarttestpy.assertions import assert_status_code
+from SmartTestPy.assertions import assert_status_code
 
 response = MockResponse(200, "OK")
 assert_status_code(response, 200)
@@ -42,7 +42,7 @@ assert_status_code(response, 200)
 
 ### 🧪 **Fixtures e Mocks**
 ```python
-from smarttestpy.fixtures import fake_user
+from SmartTestPy.fixtures import fake_user
 
 user = fake_user()
 assert user['email'] is not None
@@ -50,7 +50,7 @@ assert user['email'] is not None
 
 ### 🌐 **Testes de API**
 ```python
-from smarttestpy.response_helpers import assert_json_response
+from SmartTestPy.response_helpers import assert_json_response
 
 response = client.get("/api/user/1/")
 assert_json_response(response, {"id": 1, "name": "John Doe"})
@@ -58,7 +58,7 @@ assert_json_response(response, {"id": 1, "name": "John Doe"})
 
 ### ⏳ **Manipulação de Tempo**
 ```python
-from smarttestpy.time_utils import fixed_time
+from SmartTestPy.time_utils import fixed_time
 
 assert fixed_time().strftime("%Y-%m-%d") == "2025-01-01"
 ```
@@ -74,7 +74,7 @@ pytest tests/ --maxfail=1 --disable-warnings -v
 📈 Para gerar relatório de cobertura:
 
 ```bash
-pytest --cov=smarttestpy --cov-report=html
+pytest --cov=SmartTestPy --cov-report=html
 ```
 
 ---
@@ -83,7 +83,7 @@ pytest --cov=smarttestpy --cov-report=html
 ```
 SmartTestPy/
 │
-├── smarttestpy/                # 📦 Código do pacote
+├── SmartTestPy/                # 📦 Código do pacote
 │   ├── __init__.py
 │   ├── assertions.py           # ✅ Assertions personalizadas
 │   ├── fixtures.py             # 🏗 Fixtures e mocks reutilizáveis

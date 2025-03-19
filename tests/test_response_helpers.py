@@ -1,9 +1,7 @@
 import pytest
-from smarttestpy.response_helpers import (
-    assert_json_response,
-    assert_header,
-    assert_status_and_json
-)
+
+from SmartTestPy.response_helpers import (assert_header, assert_json_response,
+                                          assert_status_and_json)
 
 
 # 🔄 Classe mock para simular respostas HTTP
@@ -19,18 +17,18 @@ class MockResponse:
 
 # 🌐 ✅ Testes para assert_json_response
 def test_assert_json_response_pass():
-    response = MockResponse(200, {"message": "Sucesso"}, {"Content-Type": "application/json"})
+    response = MockResponse(200, {"message": "Sucesso"}, {"Content-Type": "application/json"})  # noqa501
     assert_json_response(response, {"message": "Sucesso"})
 
 
 def test_assert_json_response_fail_content_type():
-    response = MockResponse(200, {"message": "Sucesso"}, {"Content-Type": "text/html"})
+    response = MockResponse(200, {"message": "Sucesso"}, {"Content-Type": "text/html"})  # noqa501
     with pytest.raises(AssertionError, match="❌ Content-Type inválido"):
         assert_json_response(response, {"message": "Sucesso"})
 
 
 def test_assert_json_response_fail_json():
-    response = MockResponse(200, {"message": "Erro"}, {"Content-Type": "application/json"})
+    response = MockResponse(200, {"message": "Erro"}, {"Content-Type": "application/json"})  # noqa501
     with pytest.raises(AssertionError, match="❌ JSON incorreto"):
         assert_json_response(response, {"message": "Sucesso"})
 
@@ -43,24 +41,24 @@ def test_assert_header_pass():
 
 def test_assert_header_fail():
     response = MockResponse(200, {}, {"X-Auth": "67890"})
-    with pytest.raises(AssertionError, match="❌ Valor incorreto para o cabeçalho"):
+    with pytest.raises(AssertionError, match="❌ Valor incorreto para o cabeçalho"): # noqa501
         assert_header(response, "X-Auth", "12345")
 
 
 # 🔄 🌟 Testes para assert_status_and_json
 def test_assert_status_and_json_pass():
-    response = MockResponse(200, {"message": "OK"}, {"Content-Type": "application/json"})
+    response = MockResponse(200, {"message": "OK"}, {"Content-Type": "application/json"}) # noqa501
     assert_status_and_json(response, 200, {"message": "OK"})
 
 
 def test_assert_status_and_json_fail_status():
-    response = MockResponse(404, {"message": "OK"}, {"Content-Type": "application/json"})
+    response = MockResponse(404, {"message": "OK"}, {"Content-Type": "application/json"}) # noqa501
     with pytest.raises(AssertionError, match="❌ Código de status inválido"):
         assert_status_and_json(response, 200, {"message": "OK"})
 
 
 def test_assert_status_and_json_fail_json():
-    response = MockResponse(200, {"message": "Erro"}, {"Content-Type": "application/json"})
+    response = MockResponse(200, {"message": "Erro"}, {"Content-Type": "application/json"}) # noqa501
     with pytest.raises(AssertionError, match="❌ JSON incorreto"):
         assert_status_and_json(response, 200, {"message": "OK"})
 

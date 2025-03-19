@@ -1,8 +1,8 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="SmartTestPy",
-    version="1.1.0",
+    version="1.1.1",
     packages=find_packages(),
     install_requires=[
         "pytest",
@@ -13,12 +13,12 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "smarttestpy=smarttestpy.core.test_runner:run_tests",
+            "smarttestpy=SmartTestPy.core.test_runner:run_tests",
         ],
     },
     author="Roberto Lima",
     author_email="robertolima.izphera@gmail.com",
-    description="Pacote para testes automatizados em Python, com integração ao pytest, geração de dados fake, mocks avançados e manipulação de tempo.",
+    description="Pacote para testes automatizados em Python, com integração ao pytest, geração de dados fake, mocks avançados e manipulação de tempo.", # noqa501
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/robertolima-dev/SmartTestPy",

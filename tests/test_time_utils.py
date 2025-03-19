@@ -1,13 +1,9 @@
-# 🧪 tests/test_time_utils.py
+from datetime import datetime, timedelta
 
 import pytest
-from datetime import datetime, timedelta
-from smarttestpy.time_utils import (
-    get_current_time,
-    add_time,
-    subtract_time,
-    fixed_time
-)
+
+from SmartTestPy.time_utils import (add_time, fixed_time, get_current_time,
+                                    subtract_time)
 
 
 # 🕒 Testes para get_current_time
@@ -15,7 +11,7 @@ def test_get_current_time_default():
     """✅ Testa se o tempo atual é retornado no formato padrão."""
     current_time = get_current_time()
     expected_format = "%Y-%m-%d %H:%M:%S"
-    datetime.strptime(current_time, expected_format)  # Se falhar, lança ValueError
+    datetime.strptime(current_time, expected_format)  # Se falhar, lança ValueError  # noqa501
 
 
 def test_get_current_time_custom_format():

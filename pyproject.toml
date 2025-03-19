@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "SmartTestPy"
-version = "1.1.0"
+version = "1.1.1"
 description = "Pacote para testes automatizados em Python, com integração ao pytest e cobertura de código."
 readme = "README.md"
 license = { file = "LICENSE" } # Ou "MIT" direto, se preferir.
@@ -29,8 +29,8 @@ classifiers = [
 
 # Links úteis, como repositório e issue tracker.
 [project.urls]
-"Source" = "https://github.com/seuusuario/SmartTestPy"
-"Tracker" = "https://github.com/seuusuario/SmartTestPy/issues"
+"Source" = "https://github.com/robertolima-dev/SmartTestPy"
+"Tracker" = "https://github.com/robertolima-dev/SmartTestPy/issues"
 
 [project.scripts]
-smarttestpy = "smarttestpy.core.test_runner:run_tests"
+smarttestpy = "SmartTestPy.core.test_runner:run_tests"

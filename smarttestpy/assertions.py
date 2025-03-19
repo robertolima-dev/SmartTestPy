@@ -13,7 +13,7 @@ def assert_status_code(response, expected_status):
     """
     actual_status = getattr(response, 'status_code', None)
     assert actual_status == expected_status, (
-        f"❌ Código de status inválido: esperado {expected_status}, obtido {actual_status}."
+        f"❌ Código de status inválido: esperado {expected_status}, obtido {actual_status}." # noqa501
     )
 
 
@@ -34,7 +34,7 @@ def assert_in_response(response, content):
     )
 
 
-def assert_equal_with_message(actual, expected, message="Valores não correspondem."):
+def assert_equal_with_message(actual, expected, message="Valores não correspondem."): # noqa501
     """
     ⚡ Compara dois valores e exibe mensagem personalizada em caso de falha.
 

@@ -1,7 +1,7 @@
-# 🧪 tests/test_fixtures.py
-
 import pytest
-from smarttestpy.fixtures import fake_user, fake_company, fake_product, mock_response_200
+
+from SmartTestPy.fixtures import (fake_company, fake_product, fake_user,
+                                  mock_response_200)
 
 
 # 🧪 Testes para a fixture fake_user
@@ -47,5 +47,7 @@ def test_mock_response_200(mock_response_200):
 
 
 # 🏃 **Execução dos testes**
+if __name__ == "__main__":
+    pytest.main(["-v", "tests/test_fixtures.py"])
 if __name__ == "__main__":
     pytest.main(["-v", "tests/test_fixtures.py"])

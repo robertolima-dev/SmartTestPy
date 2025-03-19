@@ -1,11 +1,7 @@
-# 🧪 tests/test_assertions.py
-
 import pytest
-from smarttestpy.assertions import (
-    assert_status_code,
-    assert_in_response,
-    assert_equal_with_message
-)
+
+from SmartTestPy.assertions import (assert_equal_with_message,
+                                    assert_in_response, assert_status_code)
 
 
 # 🔄 Classe mock para simular respostas
@@ -35,7 +31,7 @@ def test_assert_in_response_pass():
 
 def test_assert_in_response_fail():
     response = MockResponse(200, "Operação concluída.")
-    with pytest.raises(AssertionError, match="❌ Conteúdo 'cadastrado' não encontrado"):
+    with pytest.raises(AssertionError, match="❌ Conteúdo 'cadastrado' não encontrado"): # noqa501
         assert_in_response(response, "cadastrado")
 
 
