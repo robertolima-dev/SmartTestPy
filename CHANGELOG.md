@@ -1,6 +1,10 @@
 # 📜 Changelog
 
 
+## [1.1.3] - 2025-03-19
+### Adicionado
+- Ajustes em algumas funções.
+
 ## [1.1.2] - 2025-03-19
 ### Adicionado
 - Ajustes no README.

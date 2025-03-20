@@ -1,6 +1,7 @@
 # 📦 smarttestpy/time_utils.py
 
 from datetime import datetime, timedelta
+
 from freezegun import freeze_time
 
 
@@ -19,7 +20,7 @@ def get_current_time(format_str="%Y-%m-%d %H:%M:%S"):
 
 def add_time(delta: timedelta, format_str="%Y-%m-%d %H:%M:%S"):
     """
-    ⏳ Adiciona um intervalo de tempo ao tempo atual e retorna o valor formatado.
+    ⏳ Adiciona um intervalo de tempo ao tempo atual e retorna o valor formatado. # noqa501
 
     Args:
         delta (timedelta): Intervalo de tempo a ser adicionado.

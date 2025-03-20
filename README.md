@@ -30,14 +30,15 @@ pip install SmartTestPy
 
 ---
 
-## 🚀 **Como Usar**
+## 🚀 **Como Usar**  
 
-### ✅ **Assertions Customizadas**
+### ✅ **Assertions Customizadas**  
+
 ```python
 from SmartTestPy.assertions import assert_status_code
 
 class MockResponse:
-    def __init__(self, status_code, text):
+    def __init__(self, status_code, text=""):
         self.status_code = status_code
         self.text = text
 
@@ -45,7 +46,10 @@ response = MockResponse(200, "OK")
 assert_status_code(response, 200)
 ```
 
-### 🧪 **Fixtures e Mocks**
+---
+
+### 🧪 **Fixtures e Mocks**  
+
 ```python
 from SmartTestPy.fixtures import fake_user
 
@@ -53,15 +57,24 @@ user = fake_user()
 assert user['email'] is not None
 ```
 
-### 🌐 **Testes de API**
+---
+
+### 🌐 **Testes de API**  
+
 ```python
 from SmartTestPy.response_helpers import assert_json_response
+from requests import Session  # Importação corrigida
 
-response = client.get("/api/user/1/")
+client = Session()  # Criando um cliente para chamadas HTTP
+
+response = client.get("https://api.example.com/user/1/")
 assert_json_response(response, {"id": 1, "name": "John Doe"})
 ```
 
-### ⏳ **Manipulação de Tempo**
+---
+
+### ⏳ **Manipulação de Tempo**  
+
 ```python
 from SmartTestPy.time_utils import fixed_time
 
@@ -70,13 +83,13 @@ assert fixed_time().strftime("%Y-%m-%d") == "2025-01-01"
 
 ---
 
-## 🏃 **Executando os Testes**
+## 🏃 **Executando os Testes**  
 
 ```bash
 pytest tests/ --maxfail=1 --disable-warnings -v
 ```
 
-📈 Para gerar relatório de cobertura:
+📈 **Gerar relatório de cobertura:**  
 
 ```bash
 pytest --cov=SmartTestPy --cov-report=html
