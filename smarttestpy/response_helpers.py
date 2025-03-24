@@ -12,7 +12,7 @@ def assert_json_response(response: Response, expected_json: dict):
     Raises:
         AssertionError: Se o JSON retornado não corresponder ao esperado.
     """
-    assert response.headers.get("Content-Type") == "application/json", (
+    assert "application/json" in response.headers.get("Content-Type", ""), (
         "❌ Content-Type inválido. Esperado 'application/json'."
     )
     assert response.json() == expected_json, (
