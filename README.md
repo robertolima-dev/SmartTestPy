@@ -97,6 +97,57 @@ pytest --cov=SmartTestPy --cov-report=html
 
 ---
 
+
+### 1. Testando uma API REST com validação de status e conteúdo
+```python
+from SmartTestPy.assertions import assert_status_code, assert_in_response
+import requests
+
+def test_api_user_creation():
+    response = requests.post("https://api.exemplo.com/users", json={"name": "Ana"})
+    assert_status_code(response, 201)
+    assert_in_response(response, "Usuário criado com sucesso")
+```
+
+### 2. Utilizando fixtures para gerar dados dinâmicos em massa
+```python
+def test_register_multiple_users(fake_user):
+    users = [fake_user for _ in range(5)]
+    for user in users:
+        assert "@" in user["email"]
+```
+
+### 3. Mockando respostas HTTP para testes isolados
+```python
+def test_service_with_mock_response(mock_response_200):
+    response = mock_response_200
+    assert response.status_code == 200
+    assert response.text == "OK"
+```
+
+### 4. Manipulando o tempo em testes
+```python
+from SmartTestPy.time_utils import fixed_time
+
+def test_fixed_time():
+    assert fixed_time().strftime("%Y-%m-%d") == "2025-01-01"
+```
+
+### 5. Integração com pytest e relatórios de cobertura
+```bash
+pytest tests/ --cov=SmartTestPy --cov-report=term-missing
+```
+
+### 6. Testando unicidade e geração de dados únicos
+```python
+def test_unique_fake_users(fake_user):
+    user1 = fake_user
+    user2 = fake_user  # pytest chama a fixture novamente
+    assert user1 != user2
+```
+
+---
+
 ## 🏰 **Estrutura do Projeto**
 ```
 SmartTestPy/

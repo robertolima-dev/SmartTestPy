@@ -1,15 +1,18 @@
 # 📦 smarttestpy/assertions.py
 
-def assert_status_code(response, expected_status):
+from typing import Any, Union
+from requests.models import Response
+
+def assert_status_code(response: Union[Response, Any], expected_status: int) -> None:
     """
     ✅ Valida se o código de status da resposta é o esperado.
 
     Args:
         response: Objeto de resposta (ex.: response do requests).
-        expected_status (int): Código de status esperado.
+        expected_status: Código de status esperado.
 
     Raises:
-        AssertionError: Se o código de status não corresponder.
+        AssertionError: Se o código de status não corresponder ao esperado.
     """
     actual_status = getattr(response, 'status_code', None)
     assert actual_status == expected_status, (
@@ -17,13 +20,13 @@ def assert_status_code(response, expected_status):
     )
 
 
-def assert_in_response(response, content):
+def assert_in_response(response: Union[Response, Any], content: str) -> None:
     """
     🔍 Verifica se um conteúdo está presente na resposta.
 
     Args:
         response: Objeto de resposta com atributo 'text'.
-        content (str): Texto esperado na resposta.
+        content: Texto esperado na resposta.
 
     Raises:
         AssertionError: Se o conteúdo não for encontrado na resposta.
@@ -34,14 +37,18 @@ def assert_in_response(response, content):
     )
 
 
-def assert_equal_with_message(actual, expected, message="Valores não correspondem."): # noqa501
+def assert_equal_with_message(
+    actual: Any,
+    expected: Any,
+    message: str = "Valores não correspondem."
+) -> None:
     """
     ⚡ Compara dois valores e exibe mensagem personalizada em caso de falha.
 
     Args:
         actual: Valor real.
         expected: Valor esperado.
-        message (str): Mensagem exibida em caso de falha.
+        message: Mensagem exibida em caso de falha.
 
     Raises:
         AssertionError: Se os valores não forem iguais.
@@ -54,7 +61,7 @@ def assert_equal_with_message(actual, expected, message="Valores não correspond
 # 🌟 Exemplo de uso básico
 if __name__ == "__main__":
     class MockResponse:
-        def __init__(self, status_code, text):
+        def __init__(self, status_code: int, text: str = "") -> None:
             self.status_code = status_code
             self.text = text
 
