@@ -146,6 +146,58 @@ def test_unique_fake_users(fake_user):
     assert user1 != user2
 ```
 
+### 7. Testes de Segurança
+```python
+from SmartTestPy.security import SecurityScanner, SQLInjectionTester, SecurityHeadersValidator, JWTChecker
+
+# Scanner de vulnerabilidades básicas
+scanner = SecurityScanner()
+result = scanner.scan("https://api.exemplo.com")
+print(f"Vulnerabilidades encontradas: {result['vulnerabilities']}")
+
+# Teste de injeção SQL
+tester = SQLInjectionTester()
+is_vulnerable = tester.test_injection("https://api.exemplo.com/login", "' OR '1'='1")
+print(f"Vulnerável a SQL Injection: {is_vulnerable}")
+
+# Validação de headers de segurança
+validator = SecurityHeadersValidator()
+headers = {
+    "X-Frame-Options": "DENY",
+    "X-Content-Type-Options": "nosniff",
+    "Strict-Transport-Security": "max-age=31536000"
+}
+result = validator.validate_headers(headers)
+print(f"Headers ausentes: {result['missing_headers']}")
+
+# Validação de token JWT
+checker = JWTChecker(secret_key="sua-chave-secreta")
+token = "seu-token-jwt"
+result = checker.validate_token(token)
+print(f"Token válido: {result['is_valid']}")
+```
+
+### 8. Testes de Segurança Avançados
+```python
+from SmartTestPy.security import SecurityScanner
+
+# Scanner completo de segurança
+scanner = SecurityScanner()
+result = scanner.scan("https://api.exemplo.com")
+
+# Verificando headers de segurança
+if "X-Frame-Options" not in result["headers"]:
+    print("⚠️ Falta header X-Frame-Options")
+
+# Verificando status da resposta
+if result["status_code"] == 200:
+    print("✅ Endpoint acessível")
+
+# Verificando vulnerabilidades
+for vuln in result["vulnerabilities"]:
+    print(f"⚠️ {vuln}")
+```
+
 ---
 
 ## 🏰 **Estrutura do Projeto**

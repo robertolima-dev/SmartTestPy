@@ -219,7 +219,7 @@ pydantic==2.10.5
 pydantic_core==2.27.2
 pyflakes==3.3.2
 Pygments==2.19.1
-PyJWT==2.10.1
+PyJWT>=2.8.0
 pylint==3.3.7
 pyparsing==3.0.9
 pyproject_hooks==1.2.0
@@ -246,7 +246,7 @@ QtPy==2.3.0
 readme_renderer==44.0
 redis==5.0.2
 regex==2024.11.6
-requests==2.31.0
+requests>=2.31.0
 requests-toolbelt==1.0.0
 rfc3339-validator==0.1.4
 rfc3986==2.0.0
